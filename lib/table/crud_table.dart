@@ -161,7 +161,9 @@ class _CrudTableState<T> extends ConsumerState<CrudTable> {
         }
       });
     });
-
+    SplitViewMode viewMode = MediaQuery.sizeOf(context).width < 500
+        ? SplitViewMode.Vertical
+        : SplitViewMode.Horizontal;
     return Padding(
         padding: const EdgeInsets.all(16.0),
         child: SplitView(
@@ -169,11 +171,11 @@ class _CrudTableState<T> extends ConsumerState<CrudTable> {
             refreshFormDueToMainSplitViewChange = true;
             setState(() {});
           },
-          indicator: const SplitIndicator(viewMode: SplitViewMode.Horizontal),
+          indicator: SplitIndicator(viewMode: viewMode),
           gripColor: Colors.grey.shade200,
           gripSize: 4,
           gripColorActive: Colors.grey.shade500,
-          viewMode: SplitViewMode.Horizontal,
+          viewMode: viewMode,
           children: [
             Column(
               mainAxisSize: MainAxisSize.min,

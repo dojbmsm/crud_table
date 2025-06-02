@@ -555,7 +555,7 @@ class _CrudTableState<T> extends ConsumerState<CrudTable> {
 
       columnWidgets.add(
         Container(
-          color: Colors.white,
+          // color: Colors.white,
           key: k,
           child: Padding(
             padding: const EdgeInsets.only(left: 8),
